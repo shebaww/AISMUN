@@ -268,7 +268,9 @@ const CommitteesTopics: React.FC = () => {
           {filteredCommittees.map((committee, index) => (
             <div
               key={index}
-              ref={(el) => (cardRefs.current[index] = el)}
+              ref={(el) => {
+                cardRefs.current[index] = el;
+              }}
               data-index={index}
               className={`bg-white rounded-xl p-8 editorial-shadow hover:shadow-2xl transition-all duration-700 ${
                 visibleCards.has(index)

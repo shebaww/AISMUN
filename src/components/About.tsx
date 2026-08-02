@@ -4,10 +4,6 @@ import { Link } from "react-router-dom";
 import conference2026 from "../assets/AIS UNESCO MUN/photo_2026-07-23_16-29-25.jpg";
 import conference2025 from "../assets/AIS UNESCO MUN/photo_2026-07-23_16-29-52.jpg";
 const About: React.FC = () => {
-  const handleTelegramRedirect = () => {
-    window.open("https://t.me/your_aismun_channel", "_blank");
-  };
-
   return (
     <div className="min-h-screen pt-32 pb-16">
       {/* Hero Section */}
