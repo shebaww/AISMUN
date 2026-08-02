@@ -1,0 +1,108 @@
+@import "tailwindcss";
+
+@theme {
+  /* Your custom colors */
+  --color-champagne: #ffd18c;
+  --color-deep-navy: #121e32;
+  --color-ambassador-gold: #dc8f1a;
+  --color-off-white: #f8f8f5;
+  --color-primary: #000411;
+  --color-surface: #f9f9f6;
+  --color-on-surface: #1a1c1b;
+  --color-on-surface-variant: #45474d;
+  --color-surface-variant: #e2e3e0;
+  --color-outline-variant: #c5c6cd;
+
+  /* Font families */
+  --font-body-md: "Hanken Grotesk", sans-serif;
+  --font-display-lg: "EB Garamond", serif;
+  --font-headline-md: "EB Garamond", serif;
+}
+
+/* Custom styles */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-surface);
+  color: var(--color-on-surface);
+  font-family: var(--font-body-md);
+  overflow-x: hidden;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition:
+    opacity 0.8s ease-out,
+    transform 0.8s ease-out;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.glass-nav {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.editorial-shadow {
+  box-shadow: 0 30px 60px -12px rgba(18, 30, 50, 0.05);
+}
+
+.hero-image {
+  animation: subtleZoom 20s ease-in-out infinite alternate;
+}
+
+@keyframes subtleZoom {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.05);
+  }
+}
+
+.shimmer-overlay {
+  background: linear-gradient(
+    105deg,
+    transparent 40%,
+    rgba(255, 210, 140, 0.05) 45%,
+    rgba(255, 210, 140, 0.1) 50%,
+    rgba(255, 210, 140, 0.05) 55%,
+    transparent 60%
+  );
+  background-size: 300% 100%;
+  animation: shimmer 8s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* Tailwind custom utilities */
+@utility container-max {
+  max-width: 1280px;
+}
+
+@utility margin-desktop {
+  padding-left: 64px;
+  padding-right: 64px;
+}
+
+@utility margin-mobile {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+@utility gutter {
+  gap: 32px;
+}
