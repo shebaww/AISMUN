@@ -3,9 +3,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import conference2026 from "../assets/AIS UNESCO MUN/photo_2026-07-23_16-29-25.jpg";
 import conference2025 from "../assets/AIS UNESCO MUN/photo_2026-07-23_16-29-52.jpg";
-import meklit from "../assets/exec-team/meklit.JPG";
-import emerald from "../assets/exec-team/emerald.JPG";
-import ruth from "../assets/exec-team/ruth.JPG";
 
 const About: React.FC = () => {
   return (
