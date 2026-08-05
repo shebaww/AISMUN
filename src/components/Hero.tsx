@@ -28,22 +28,16 @@ const Hero: React.FC = () => {
     <header className="relative h-screen w-full flex items-center justify-center overflow-hidden">
       <div className="absolute inset-0">
         <div className="w-full h-full overflow-hidden relative">
-          {images.map((image, index) => (
-            <div
-              key={index}
-              className={`absolute inset-0 w-full h-full transition-all duration-1000 ease-in-out ${
-                index === currentIndex
-                  ? "opacity-100 scale-100"
-                  : "opacity-0 scale-110"
-              }`}
-            >
-              <img
-                src={image}
-                alt={`AISMUN Conference ${index + 1}`}
-                className="w-full h-full object-cover"
-              />
-            </div>
-          ))}
+          {/* Only render the current image */}
+          <div className="absolute inset-0 w-full h-full transition-all duration-1000 ease-in-out">
+            <img
+              src={images[currentIndex]}
+              alt={`AISMUN Conference ${currentIndex + 1}`}
+              className="w-full h-full object-cover"
+              loading={currentIndex === 0 ? "eager" : "lazy"}
+              fetchPriority={currentIndex === 0 ? "high" : "low"}
+            />
+          </div>
         </div>
         <div className="absolute inset-0 bg-gradient-to-b from-primary/70 via-primary/50 to-primary/80"></div>
         <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-transparent to-primary/30"></div>
@@ -53,7 +47,7 @@ const Hero: React.FC = () => {
       <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-ambassador-gold/3 rounded-full blur-3xl"></div>
       <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-champagne/3 rounded-full blur-3xl"></div>
       <div
-        className="absolute inset-0"
+        className="absolute inset-0 backdrop-blur-[2px]"
         style={{
           backgroundImage:
             "linear-gradient(rgba(255,210,140,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255,210,140,0.02) 1px, transparent 1px)",

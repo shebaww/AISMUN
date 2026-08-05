@@ -1,5 +1,5 @@
 // components/Footer.tsx
-import { FaTelegramPlane } from "react-icons/fa"; // Telegram icon
+import { FaTelegramPlane } from "react-icons/fa";
 import React from "react";
 import { Link } from "react-router-dom";
 
@@ -10,8 +10,10 @@ const Footer: React.FC = () => {
 
   return (
     <footer className="bg-black text-white pt-24 pb-12">
-      <div className="max-w-[1280px] mx-auto px-[20px] md:px-[64px] grid grid-cols-1 md:grid-cols-12 gap-12 mb-20">
-        <div className="md:col-span-4">
+      {/* Use grid-cols-2 on mobile, grid-cols-5 on md+ */}
+      <div className="max-w-[1280px] mx-auto px-[20px] md:px-[64px] grid grid-cols-2 md:grid-cols-5 gap-8 md:gap-12 mb-20">
+        {/* Brand - spans full width on mobile, 1 column on md+ */}
+        <div className="col-span-2 md:col-span-1">
           <h2
             className="font-display-lg text-[32px] text-champagne mb-6"
             style={{ fontFamily: "'EB Garamond', serif" }}
@@ -22,16 +24,10 @@ const Footer: React.FC = () => {
             AIS Model United Nations brings students together from around the
             world to learn and share ideas from diverse experiences.
           </p>
-          <button
-            onClick={handleTelegramRedirect}
-            className="flex items-center gap-2 px-6 py-3 bg-ambassador-gold/20 text-champagne font-label-caps text-[12px] uppercase tracking-widest hover:bg-ambassador-gold hover:text-deep-navy transition-all rounded-lg"
-          >
-            <FaTelegramPlane className="text-[20px]" />
-            Join Telegram
-          </button>
         </div>
 
-        <div className="md:col-span-2">
+        {/* About */}
+        <div>
           <h6 className="font-label-caps text-[12px] text-champagne mb-6 uppercase tracking-widest">
             About
           </h6>
@@ -63,7 +59,8 @@ const Footer: React.FC = () => {
           </ul>
         </div>
 
-        <div className="md:col-span-2">
+        {/* Resources */}
+        <div>
           <h6 className="font-label-caps text-[12px] text-champagne mb-6 uppercase tracking-widest">
             Resources
           </h6>
@@ -95,7 +92,8 @@ const Footer: React.FC = () => {
           </ul>
         </div>
 
-        <div className="md:col-span-2">
+        {/* Support */}
+        <div>
           <h6 className="font-label-caps text-[12px] text-champagne mb-6 uppercase tracking-widest">
             Support
           </h6>
@@ -127,7 +125,8 @@ const Footer: React.FC = () => {
           </ul>
         </div>
 
-        <div className="md:col-span-2">
+        {/* Connect */}
+        <div>
           <h6 className="font-label-caps text-[12px] text-champagne mb-6 uppercase tracking-widest">
             Connect
           </h6>
@@ -143,15 +142,20 @@ const Footer: React.FC = () => {
                 alternate_email
               </span>
             </button>
-            <button className="w-10 h-10 border border-white/10 rounded-full flex items-center justify-center hover:border-champagne hover:text-champagne transition-all">
+            <a
+              href="https://instagram.com/ais._.mun"
+              className="w-10 h-10 border border-white/10 rounded-full flex items-center justify-center hover:border-champagne hover:text-champagne transition-all"
+            >
               <span className="material-symbols-outlined text-sm">
                 photo_camera
               </span>
-            </button>
+              <a href="https://instagram.com/ais._.mun"></a>
+            </a>
           </div>
         </div>
       </div>
 
+      {/* Footer bottom - unchanged */}
       <div className="max-w-[1280px] mx-auto px-[20px] md:px-[64px] pt-12 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-6">
         <p className="font-label-caps text-[10px] text-surface-variant/40 tracking-[0.2em]">
           &copy; 2026 AISMUN. DESIGNED FOR GLOBAL EXCELLENCE.

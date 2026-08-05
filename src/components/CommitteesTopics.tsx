@@ -236,13 +236,6 @@ const CommitteesTopics: React.FC = () => {
               are distributed directly via our Telegram Channel prior to each
               conference session.
             </p>
-            <button
-              onClick={handleTelegramRedirect}
-              className="flex-shrink-0 px-6 py-2 bg-ambassador-gold text-white font-label-caps text-[11px] uppercase tracking-widest hover:bg-deep-navy transition-all rounded-lg flex items-center gap-2"
-            >
-              <FaTelegramPlane className="text-[16px]" />
-              Join for Updates
-            </button>
           </div>
         </div>
 
@@ -353,23 +346,31 @@ const CommitteesTopics: React.FC = () => {
             </p>
           </div>
         )}
-
         {/* Preparation Checklist */}
-        <div className="mt-20 bg-deep-navy text-white rounded-2xl p-8 md:p-12">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="text-center">
-              <div className="w-16 h-16 bg-champagne/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <FaTelegramPlane className="text-3xl text-champagne" />
+        <div className="mt-20 bg-deep-navy border border-ambassador-gold/20 text-white rounded-2xl p-8 md:p-12 relative overflow-hidden shadow-2xl">
+          {/* Subtle Ambient Glow */}
+          <div className="absolute -right-20 -bottom-20 w-80 h-80 bg-ambassador-gold/5 rounded-full blur-3xl pointer-events-none" />
+
+          <div className="relative z-10 grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
+            {/* Step 1 */}
+            <div className="relative text-center group">
+              <div className="w-16 h-16 bg-champagne/10 border border-champagne/20 rounded-full flex items-center justify-center mx-auto mb-5 transition-transform duration-300 group-hover:scale-110 group-hover:bg-champagne/20">
+                <FaTelegramPlane className="text-2xl text-champagne" />
               </div>
               <h4 className="font-display-lg text-[20px] text-champagne mb-2">
                 1. Join Telegram
               </h4>
-              <p className="font-body-md text-[14px] text-surface-variant/70">
+              <p className="font-body-md text-[14px] text-surface-variant/70 leading-relaxed max-w-xs mx-auto">
                 Get your country assignment & background guide
               </p>
+
+              {/* Step Connector Line (Desktop Only) */}
+              <div className="hidden md:block absolute top-8 left-[65%] w-[70%] h-[1px] bg-gradient-to-r from-champagne/30 to-transparent pointer-events-none" />
             </div>
-            <div className="text-center">
-              <div className="w-16 h-16 bg-champagne/10 rounded-full flex items-center justify-center mx-auto mb-4">
+
+            {/* Step 2 */}
+            <div className="relative text-center group">
+              <div className="w-16 h-16 bg-champagne/10 border border-champagne/20 rounded-full flex items-center justify-center mx-auto mb-5 transition-transform duration-300 group-hover:scale-110 group-hover:bg-champagne/20">
                 <span className="material-symbols-outlined text-3xl text-champagne">
                   book
                 </span>
@@ -377,12 +378,17 @@ const CommitteesTopics: React.FC = () => {
               <h4 className="font-display-lg text-[20px] text-champagne mb-2">
                 2. Read MUN Guide
               </h4>
-              <p className="font-body-md text-[14px] text-surface-variant/70">
+              <p className="font-body-md text-[14px] text-surface-variant/70 leading-relaxed max-w-xs mx-auto">
                 Study our free 3-module debate curriculum
               </p>
+
+              {/* Step Connector Line (Desktop Only) */}
+              <div className="hidden md:block absolute top-8 left-[65%] w-[70%] h-[1px] bg-gradient-to-r from-champagne/30 to-transparent pointer-events-none" />
             </div>
-            <div className="text-center">
-              <div className="w-16 h-16 bg-champagne/10 rounded-full flex items-center justify-center mx-auto mb-4">
+
+            {/* Step 3 */}
+            <div className="relative text-center group">
+              <div className="w-16 h-16 bg-champagne/10 border border-champagne/20 rounded-full flex items-center justify-center mx-auto mb-5 transition-transform duration-300 group-hover:scale-110 group-hover:bg-champagne/20">
                 <span className="material-symbols-outlined text-3xl text-champagne">
                   edit_note
                 </span>
@@ -390,7 +396,7 @@ const CommitteesTopics: React.FC = () => {
               <h4 className="font-display-lg text-[20px] text-champagne mb-2">
                 3. Write Position Paper
               </h4>
-              <p className="font-body-md text-[14px] text-surface-variant/70">
+              <p className="font-body-md text-[14px] text-surface-variant/70 leading-relaxed max-w-xs mx-auto">
                 Draft your 1-page policy paper before session
               </p>
             </div>

@@ -1,4 +1,5 @@
 // components/FAQContact.tsx
+import { CiInstagram } from "react-icons/ci";
 import React, { useState } from "react";
 
 interface FAQItem {
@@ -47,7 +48,7 @@ const FAQContact: React.FC = () => {
   };
 
   const handleTelegramRedirect = () => {
-    window.open("https://t.me/your_aismun_channel", "_blank");
+    window.open("https://t.me/+2TCTBUasTbplNDRh", "_blank");
   };
 
   return (
@@ -122,7 +123,7 @@ const FAQContact: React.FC = () => {
                       onClick={handleTelegramRedirect}
                       className="font-body-md text-[16px] text-primary hover:text-ambassador-gold transition-colors"
                     >
-                      t.me/your_aismun_channel
+                      t.me/+2TCTBUasTbplNDRh
                     </button>
                   </div>
                 </div>
@@ -143,14 +144,14 @@ const FAQContact: React.FC = () => {
 
                 <div className="flex items-center gap-4 p-4 bg-white rounded-xl border border-outline-variant/30">
                   <div className="w-12 h-12 bg-ambassador-gold/10 rounded-full flex items-center justify-center text-2xl">
-                    📷
+                    <CiInstagram />
                   </div>
                   <div>
                     <p className="font-label-caps text-[10px] text-on-surface-variant uppercase tracking-wider">
                       Instagram
                     </p>
                     <p className="font-body-md text-[16px] text-primary">
-                      @aismun_official
+                      @ais._.mun
                     </p>
                   </div>
                 </div>

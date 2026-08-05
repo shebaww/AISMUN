@@ -11,6 +11,17 @@ const Navbar: React.FC = () => {
     setIsMobileMenuOpen(false);
   }, [location.pathname]);
 
+  // Close menu on scroll
+  useEffect(() => {
+    const handleScroll = () => {
+      if (isMobileMenuOpen) {
+        setIsMobileMenuOpen(false);
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [isMobileMenuOpen]);
+
   const navLinks = [
     { path: "/", label: "Home" },
     { path: "/about", label: "About" },
@@ -27,7 +38,7 @@ const Navbar: React.FC = () => {
   };
 
   return (
-    <nav className="fixed top-0 w-full z-50 glass-nav bg-surface/80 shadow-[0_20px_50px_rgba(18,30,50,0.03)] transition-all duration-300 h-20">
+    <nav className="fixed top-0 w-full z-50 glass-nav border-outline-variant/10 bg-surface/80 shadow-[0_20px_50px_rgba(18,30,50,0.03)] transition-all duration-300 h-20">
       <div className="flex justify-between items-center w-full px-[20px] md:px-[64px] max-w-[1280px] mx-auto h-full">
         <Link
           className="text-[28px] md:text-[32px] text-primary tracking-tight font-serif"
@@ -58,9 +69,10 @@ const Navbar: React.FC = () => {
         </div>
 
         <div className="flex items-center gap-3 md:gap-4">
+          {/* Hide Telegram button on mobile screens (hidden below lg breakpoint) */}
           <button
             onClick={handleTelegramRedirect}
-            className="bg-ambassador-gold text-white px-6 py-2.5 md:px-8 md:py-3 font-label-caps text-[11px] md:text-[12px] uppercase transition-all hover:bg-deep-navy hover:translate-y-[-1px] shadow-lg rounded-lg flex items-center gap-2"
+            className="hidden lg:flex bg-ambassador-gold text-white px-6 py-2.5 md:px-8 md:py-3 font-label-caps text-[11px] md:text-[12px] uppercase transition-all hover:bg-deep-navy hover:translate-y-[-1px] shadow-lg rounded-lg items-center gap-2"
           >
             <FaTelegramPlane className="text-[20px]" />
             Join Telegram
@@ -78,6 +90,7 @@ const Navbar: React.FC = () => {
         </div>
       </div>
 
+      {/* Mobile menu */}
       {isMobileMenuOpen && (
         <div className="lg:hidden bg-surface/98 backdrop-blur-lg border-t border-outline-variant/20">
           <div className="px-[20px] py-6 flex flex-col gap-4">
