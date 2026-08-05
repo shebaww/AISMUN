@@ -2,9 +2,9 @@
 import React from "react";
 
 const TelegramBanner: React.FC = () => {
-  const handleTelegramRedirect = () => {
-    window.open("https://t.me/+2TCTBUasTbplNDRh", "_blank");
-  };
+  //  const handleTelegramRedirect = () => {
+  //    window.open("https://t.me/+2TCTBUasTbplNDRh", "_blank");
+  //  };
 
   return (
     <section className="py-16 bg-black border-y-2 border-ambassador-gold/20 relative overflow-hidden">
