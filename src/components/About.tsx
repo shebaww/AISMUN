@@ -3,6 +3,10 @@ import React from "react";
 import { Link } from "react-router-dom";
 import conference2026 from "../assets/AIS UNESCO MUN/photo_2026-07-23_16-29-25.jpg";
 import conference2025 from "../assets/AIS UNESCO MUN/photo_2026-07-23_16-29-52.jpg";
+import meklit from "../assets/exec-team/meklit.JPG";
+import emerald from "../assets/exec-team/emerald.JPG";
+import ruth from "../assets/exec-team/ruth.JPG";
+
 const About: React.FC = () => {
   return (
     <div className="min-h-screen pt-32 pb-16">
@@ -152,11 +156,6 @@ const About: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             <div className="bg-white p-6 rounded-xl editorial-shadow">
               <div className="flex items-start gap-4">
-                <div className="w-16 h-16 bg-ambassador-gold/10 rounded-full flex items-center justify-center flex-shrink-0">
-                  <span className="material-symbols-outlined text-3xl text-ambassador-gold">
-                    person
-                  </span>
-                </div>
                 <div>
                   <h4 className="font-display-lg text-[20px] text-primary">
                     Secretary-General
@@ -168,22 +167,12 @@ const About: React.FC = () => {
                     Senior student with 4+ years of MUN experience across 15+
                     international conferences.
                   </p>
-                  <p className="font-body-md text-[14px] text-primary italic mt-2">
-                    "Our vision for this season is simple: create realistic,
-                    fast-paced crisis scenarios and foster an inclusive room
-                    where every delegate feels empowered to take the floor."
-                  </p>
                 </div>
               </div>
             </div>
 
             <div className="bg-white p-6 rounded-xl editorial-shadow">
               <div className="flex items-start gap-4">
-                <div className="w-16 h-16 bg-ambassador-gold/10 rounded-full flex items-center justify-center flex-shrink-0">
-                  <span className="material-symbols-outlined text-3xl text-ambassador-gold">
-                    person
-                  </span>
-                </div>
                 <div>
                   <h4 className="font-display-lg text-[20px] text-primary">
                     Deputy Secretary-General
@@ -195,21 +184,12 @@ const About: React.FC = () => {
                     Specializes in parliamentary procedure, committee logistics,
                     and chair training.
                   </p>
-                  <p className="font-body-md text-[14px] text-primary italic mt-2">
-                    Overseeing academic standards, background guides, and fair
-                    award evaluations across all committees.
-                  </p>
                 </div>
               </div>
             </div>
 
             <div className="bg-white p-6 rounded-xl editorial-shadow">
               <div className="flex items-start gap-4">
-                <div className="w-16 h-16 bg-ambassador-gold/10 rounded-full flex items-center justify-center flex-shrink-0">
-                  <span className="material-symbols-outlined text-3xl text-ambassador-gold">
-                    person
-                  </span>
-                </div>
                 <div>
                   <h4 className="font-display-lg text-[20px] text-primary">
                     Secretary
@@ -221,22 +201,12 @@ const About: React.FC = () => {
                     Heading delegate relations, Telegram community management,
                     and first-timer orientation programs.
                   </p>
-                  <p className="font-body-md text-[14px] text-primary italic mt-2">
-                    Ensuring every participant—regardless of experience
-                    level—has a seamless journey from registration to closing
-                    ceremonies.
-                  </p>
                 </div>
               </div>
             </div>
 
             <div className="bg-white p-6 rounded-xl editorial-shadow">
               <div className="flex items-start gap-4">
-                <div className="w-16 h-16 bg-ambassador-gold/10 rounded-full flex items-center justify-center flex-shrink-0">
-                  <span className="material-symbols-outlined text-3xl text-ambassador-gold">
-                    person
-                  </span>
-                </div>
                 <div>
                   <h4 className="font-display-lg text-[20px] text-primary">
                     Treasurer
@@ -245,12 +215,8 @@ const About: React.FC = () => {
                     Omna Berhanu
                   </p>
                   <p className="font-body-md text-[14px] text-on-surface-variant mt-2">
-                    Veteran crisis director known for designing dynamic,
-                    unpredictable historical and futuristic committee arcs.
-                  </p>
-                  <p className="font-body-md text-[14px] text-primary italic mt-2">
-                    Designing immersive crisis simulations that challenge even
-                    the most experienced delegates.
+                    Veteran treasurer known for managing complex, rock-solid
+                    budgets andi seamless financial committee ops.
                   </p>
                 </div>
               </div>

@@ -92,84 +92,24 @@ const App: React.FC = () => {
   }, []);
 
   return (
-    <Router>
+    <Router basename="/AISMUN">
       <div className="bg-background text-on-surface font-body-md overflow-x-hidden">
         <Navbar />
         <ScrollToTop />
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <RouteWrapper>
-                <HomePage />
-              </RouteWrapper>
-            }
-          />
-          <Route
-            path="/about"
-            element={
-              <RouteWrapper>
-                <About />
-              </RouteWrapper>
-            }
-          />
-          <Route
-            path="/secretariat"
-            element={
-              <RouteWrapper>
-                <SecretariatTeam />
-              </RouteWrapper>
-            }
-          />
-          <Route
-            path="/past-conferences"
-            element={
-              <RouteWrapper>
-                <PastConferences />
-              </RouteWrapper>
-            }
-          />
-          <Route
-            path="/committees"
-            element={
-              <RouteWrapper>
-                <CommitteesTopics />
-              </RouteWrapper>
-            }
-          />
-          <Route
-            path="/guide"
-            element={
-              <RouteWrapper>
-                <MUNGuide />
-              </RouteWrapper>
-            }
-          />
-          <Route
-            path="/code-of-conduct"
-            element={
-              <RouteWrapper>
-                <CodeOfConduct />
-              </RouteWrapper>
-            }
-          />
-          <Route
-            path="/faq"
-            element={
-              <RouteWrapper>
-                <FAQContact />
-              </RouteWrapper>
-            }
-          />
-          <Route
-            path="/why-parents-trust"
-            element={
-              <RouteWrapper>
-                <WhyParentsTrust />
-              </RouteWrapper>
-            }
-          />
-        </Routes>
+        {/* Wrap Routes in RouteWrapper so the IntersectionObserver initializes */}
+        <RouteWrapper>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/secretariat" element={<SecretariatTeam />} />
+            <Route path="/past-conferences" element={<PastConferences />} />
+            <Route path="/committees" element={<CommitteesTopics />} />
+            <Route path="/guide" element={<MUNGuide />} />
+            <Route path="/code-of-conduct" element={<CodeOfConduct />} />
+            <Route path="/faq" element={<FAQContact />} />
+            <Route path="/why-parents-trust" element={<WhyParentsTrust />} />
+          </Routes>
+        </RouteWrapper>
         <Footer />
       </div>
     </Router>

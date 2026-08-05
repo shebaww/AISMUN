@@ -63,18 +63,18 @@ const Hero: React.FC = () => {
       ></div>
 
       <div className="relative z-10 text-center px-[20px] max-w-4xl">
-        <span className="reveal font-label-caps text-[12px] text-champagne tracking-[0.3em] uppercase mb-6 block">
+        <span className="font-label-caps text-[12px] text-champagne tracking-[0.3em] uppercase mb-6 block">
           AISMUN • A CONFERENCE FOR ALL DELEGATES
         </span>
-        <h1 className="reveal font-display-lg text-[40px] md:text-[64px] text-white mb-8 leading-tight">
+        <h1 className="font-display-lg text-[40px] md:text-[64px] text-white mb-8 leading-tight">
           Empowering Global Leaders <br />
           <span className="italic font-normal">of Tomorrow</span>
         </h1>
-        <p className="reveal font-body-lg text-[18px] md:text-[20px] text-white/80 max-w-2xl mx-auto mb-10 leading-relaxed">
+        <p className="font-body-lg text-[18px] md:text-[20px] text-white/80 max-w-2xl mx-auto mb-10 leading-relaxed">
           Join hundreds of delegates in resolving complex global crises,
           mastering public speaking, and negotiating world-changing resolutions.
         </p>
-        <div className="reveal flex flex-col md:flex-row gap-6 justify-center mt-10">
+        <div className="flex flex-col md:flex-row gap-6 justify-center mt-10">
           <button
             onClick={handleTelegramRedirect}
             className="px-10 py-5 bg-ambassador-gold text-white font-label-caps text-[12px] uppercase tracking-widest hover:bg-deep-navy transition-all editorial-shadow relative overflow-hidden group rounded-lg flex items-center gap-3"
