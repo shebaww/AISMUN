@@ -1,4 +1,5 @@
 // components/WhyParentsTrust.tsx
+import { FaTelegramPlane } from "react-icons/fa"; // Telegram icon
 import React from "react";
 
 const WhyParentsTrust: React.FC = () => {
@@ -184,13 +185,11 @@ const WhyParentsTrust: React.FC = () => {
         <div className="mt-16 text-center">
           <button
             onClick={() =>
-              window.open("https://t.me/your_aismun_channel", "_blank")
+              window.open("https://t.me/+2TCTBUasTbplNDRh", "_blank")
             }
             className="inline-flex items-center gap-3 px-10 py-4 bg-ambassador-gold text-white font-label-caps text-[12px] uppercase tracking-widest hover:bg-deep-navy transition-all rounded-lg shadow-lg hover:shadow-xl"
           >
-            <span className="material-symbols-outlined text-[20px]">
-              telegram
-            </span>
+            <FaTelegramPlane />
             Join Parent Information Channel
           </button>
         </div>
