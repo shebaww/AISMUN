@@ -60,14 +60,6 @@ const SecretariatTeam: React.FC = () => {
         "Creating seamless experiences from registration to closing ceremony.",
     },
     {
-      name: "Rhodas",
-      role: "Head of Delegate Training",
-      image:
-        "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=400&q=80",
-      quote:
-        "Creating seamless experiences from registration to closing ceremony.",
-    },
-    {
       name: "Hemen Daniel",
       role: "Head of Delegate Training",
       image: hemen,
