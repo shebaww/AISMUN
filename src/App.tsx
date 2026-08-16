@@ -95,7 +95,7 @@ const App: React.FC = () => {
   }, []);
 
   return (
-    <Router basename="/AISMUN">
+    <Router>
       <div className="bg-background text-on-surface font-body-md overflow-x-hidden">
         <Navbar />
         <ScrollToTop />
