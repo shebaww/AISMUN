@@ -1,5 +1,5 @@
 // components/Navbar.tsx
-import { FaTelegramPlane } from "react-icons/fa"; // Telegram icon
+import { FaTelegramPlane } from "react-icons/fa";
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 
@@ -26,6 +26,7 @@ const Navbar: React.FC = () => {
     { path: "/", label: "Home" },
     { path: "/about", label: "About" },
     { path: "/committees", label: "Committees" },
+    { path: "/resources", label: "Resources" }, // Added this
     { path: "/guide", label: "MUN Guide" },
     { path: "/code-of-conduct", label: "Code of Conduct" },
     { path: "/faq", label: "FAQ" },
