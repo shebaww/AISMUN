@@ -18,6 +18,8 @@ import PastConferences from "./components/PastConferences";
 import CommitteesTopics from "./components/CommitteesTopics";
 import MUNGuide from "./components/MUNGuide";
 import CodeOfConduct from "./components/CodeOfConduct";
+import Resources from "./components/Resources.tsx";
+import PodcastsArticles from "./components/PodcastsArticles.tsx";
 import FAQContact from "./components/FAQContact";
 import WhyParentsTrust from "./components/WhyParentsTrust";
 
@@ -72,6 +74,7 @@ const HomePage: React.FC = () => (
     <Hero />
     <TelegramBanner />
     <WhyAttend />
+    <PodcastsArticles />
     <Testimonials />
   </>
 );
@@ -108,6 +111,7 @@ const App: React.FC = () => {
             <Route path="/code-of-conduct" element={<CodeOfConduct />} />
             <Route path="/faq" element={<FAQContact />} />
             <Route path="/why-parents-trust" element={<WhyParentsTrust />} />
+            <Route path="/resources" element={<Resources />} />
           </Routes>
         </RouteWrapper>
         <Footer />
