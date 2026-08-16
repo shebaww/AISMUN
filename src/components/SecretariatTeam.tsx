@@ -3,6 +3,7 @@ import React from "react";
 import meklit from "../assets/exec-team/meklit.JPG";
 import emerald from "../assets/exec-team/emerald.JPG";
 import ruth from "../assets/exec-team/ruth.JPG";
+import annan from "../assets/exec-team/annan.jpg";
 import hemen from "../assets/exec-team/hemen.JPG";
 
 interface TeamMember {
@@ -78,8 +79,7 @@ const SecretariatTeam: React.FC = () => {
     {
       name: "Anan Megersa",
       role: "Photographer",
-      image:
-        "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=400&q=80",
+      image: annan,
       quote:
         "Creating seamless experiences from registration to closing ceremony.",
     },
