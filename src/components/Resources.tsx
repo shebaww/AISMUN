@@ -31,6 +31,7 @@ const Resources: React.FC = () => {
     "all",
   );
   const [playingPodcast, setPlayingPodcast] = useState<string | null>(null);
+  const [loadingPodcast, setLoadingPodcast] = useState<string | null>(null);
   const audioRefs = useRef<{ [key: string]: HTMLAudioElement | null }>({});
 
   const podcasts: Podcast[] = [
@@ -40,7 +41,7 @@ const Resources: React.FC = () => {
       description:
         "Discussing the Conflict in the Middle East. Can Democracy still prevent a wider war?",
       host: "AISMUN Team",
-      duration: "23 min",
+      duration: "16 min",
       date: "August 2026",
       image:
         "https://images.unsplash.com/photo-1478737270239-2f02b77fc618?w=600&q=80",
@@ -88,6 +89,7 @@ const Resources: React.FC = () => {
     if (playingPodcast === podcastId) {
       audioRefs.current[podcastId]?.pause();
       setPlayingPodcast(null);
+      setLoadingPodcast(null);
     } else {
       // Pause any other playing podcast
       Object.keys(audioRefs.current).forEach((key) => {
@@ -95,8 +97,27 @@ const Resources: React.FC = () => {
           audioRefs.current[key]?.pause();
         }
       });
-      audioRefs.current[podcastId]?.play();
-      setPlayingPodcast(podcastId);
+
+      const audio = audioRefs.current[podcastId];
+      if (audio) {
+        // Show loading state
+        setLoadingPodcast(podcastId);
+
+        // Try to play
+        const playPromise = audio.play();
+        if (playPromise !== undefined) {
+          playPromise
+            .then(() => {
+              setLoadingPodcast(null);
+              setPlayingPodcast(podcastId);
+            })
+            .catch((error) => {
+              console.error("Playback error:", error);
+              setLoadingPodcast(null);
+              // Show error message or retry
+            });
+        }
+      }
     }
   };
 
@@ -202,17 +223,45 @@ const Resources: React.FC = () => {
                         {podcast.description}
                       </p>
 
-                      {/* Audio Player */}
+                      {/* Audio Player with Loading State */}
                       <div className="bg-surface-variant/20 rounded-lg p-3 flex items-center gap-4">
                         <button
                           onClick={() => togglePlay(podcast.id)}
-                          className="w-10 h-10 bg-ambassador-gold text-white rounded-full flex items-center justify-center hover:bg-deep-navy transition-colors flex-shrink-0"
+                          disabled={loadingPodcast === podcast.id}
+                          className={`w-10 h-10 rounded-full flex items-center justify-center transition-all flex-shrink-0 ${
+                            loadingPodcast === podcast.id
+                              ? "bg-ambassador-gold/50 cursor-not-allowed"
+                              : "bg-ambassador-gold text-white hover:bg-deep-navy"
+                          }`}
                         >
-                          <span className="material-symbols-outlined text-[24px]">
-                            {playingPodcast === podcast.id
-                              ? "pause"
-                              : "play_arrow"}
-                          </span>
+                          {loadingPodcast === podcast.id ? (
+                            <svg
+                              className="animate-spin h-5 w-5 text-white"
+                              xmlns="http://www.w3.org/2000/svg"
+                              fill="none"
+                              viewBox="0 0 24 24"
+                            >
+                              <circle
+                                className="opacity-25"
+                                cx="12"
+                                cy="12"
+                                r="10"
+                                stroke="currentColor"
+                                strokeWidth="4"
+                              ></circle>
+                              <path
+                                className="opacity-75"
+                                fill="currentColor"
+                                d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                              ></path>
+                            </svg>
+                          ) : (
+                            <span className="material-symbols-outlined text-[24px]">
+                              {playingPodcast === podcast.id
+                                ? "pause"
+                                : "play_arrow"}
+                            </span>
+                          )}
                         </button>
                         <div className="flex-1 min-w-0">
                           <audio
@@ -222,15 +271,33 @@ const Resources: React.FC = () => {
                             controls
                             className="w-full h-8"
                             src={podcast.audioUrl}
-                            onPlay={() => setPlayingPodcast(podcast.id)}
-                            onPause={() => setPlayingPodcast(null)}
-                            onEnded={() => setPlayingPodcast(null)}
+                            onPlay={() => {
+                              setLoadingPodcast(null);
+                              setPlayingPodcast(podcast.id);
+                            }}
+                            onPause={() => {
+                              setPlayingPodcast(null);
+                            }}
+                            onEnded={() => {
+                              setPlayingPodcast(null);
+                              setLoadingPodcast(null);
+                            }}
+                            onWaiting={() => {
+                              // Show loading when buffering
+                              setLoadingPodcast(podcast.id);
+                            }}
+                            onCanPlay={() => {
+                              // Hide loading when ready to play
+                              setLoadingPodcast(null);
+                            }}
                           >
                             Your browser does not support the audio element.
                           </audio>
                         </div>
                         <span className="font-label-caps text-[10px] text-on-surface-variant/60 flex-shrink-0">
-                          {podcast.duration}
+                          {loadingPodcast === podcast.id
+                            ? "Loading..."
+                            : podcast.duration}
                         </span>
                       </div>
                     </div>
